@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP imagenes con IA de Edwin Bikes</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@1.0.0"
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>APP imagenes con IA de Edwin Bikes</h1>
+    </header>
+    <main class="container">
+        <section class="controls" aria-labelledby="controls-heading">
+            <h2 id="controls-heading">Controles</h2>
+            <div class="control-group">
+                <label for="image-upload">1. Sube tu Imagen</label>
+                <input type="file" id="image-upload" accept="image/*">
+            </div>
+            <div id="original-image-container">
+                <img id="original-image" src="" alt="Vista previa de la imagen original" style="display: none;">
+                <p id="upload-placeholder">Sube una imagen para comenzar</p>
+            </div>
+            <div class="control-group">
+                <label for="prompt-examples">2. O elige una idea (Opcional)</label>
+                <select id="prompt-examples">
+                    <option value="" selected disabled>Selecciona un ejemplo...</option>
+                    <option value="modifica la imagen y dale un aspecto profesional, donde los colores destaquen y resalten lo mejor de la fotografia">Mejorar profesionalmente</option>
+                    <option value="Convierte la foto en una pintura al óleo.">Estilo pintura al óleo</option>
+                    <option value="Dale un estilo de ciencia ficción cyberpunk.">Estilo Cyberpunk</option>
+                    <option value="Haz que parezca un dibujo animado.">Estilo dibujo animado</option>
+                    <option value="Añade un efecto de iluminación dramática.">Iluminación dramática</option>
+                    <option value="Cambia el fondo a una playa tropical.">Fondo de playa tropical</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="prompt-input">3. Describe o refina la Edición</label>
+                <textarea id="prompt-input" rows="5" placeholder="Ej: Haz que el cielo sea morado"></textarea>
+            </div>
+            <button id="edit-button" disabled>Editar Imagen</button>
+        </section>
+        <section class="results" aria-labelledby="results-heading">
+            <h2 id="results-heading">Resultado</h2>
+            <div id="result-container">
+                <div id="loader" class="hidden"></div>
+                <p id="result-placeholder">Tu imagen editada aparecerá aquí.</p>
+            </div>
+            <button id="download-button" class="hidden">Descargar Imagen</button>
+        </section>
+    </main>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
